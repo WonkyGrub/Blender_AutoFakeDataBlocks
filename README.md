@@ -41,6 +41,6 @@ Download python file, go into blender settings > add-ons in preferences, install
 Enable the add on, add on preferences can be found within its add-on dropdown panel, all datablocks are on by default, along with running on auto save. 
 
 
-#Note
+# Note
 
 When an action to fake user data blocks is run, the visual indicators will not automatically update - simply move the cursor or interact with UI where it would appear, and it should update to show.

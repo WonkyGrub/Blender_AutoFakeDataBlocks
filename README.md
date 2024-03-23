@@ -7,10 +7,10 @@ Confirmed Working in Blender Alpha 4.2.0
 
 Heavily based on an amalgomation of code by [[https://blender.stackexchange.com/users/1363/codemanx|CodeManX]] [[https://blender.stackexchange.com/questions/9289/fake-user-on-by-default-in-blender-materials-and-textures|here]]. And [[https://github.com/TheKenetics|TheKinetics]] addon [[https://github.com/TheKenetics/SetAllFakeUsers2.8|here]].
 
-#Why
+# Why
 Because I got annoyed manually doing it to prevent data from being lost. 
 
-#Features
+# Features
 
 Setting fake users for these datablocks:
 
@@ -34,7 +34,7 @@ Setting fake users for these datablocks:
 
 Toggleable auto set fake user feature, with preferences options to choose which datablocks, as well as a command to set fake users using your preferences, or manually choosing.
 
-#Installation
+# Installation
 
 Download python file, go into blender settings > add-ons in preferences, install from file and choose the python file you just downloaded.
 

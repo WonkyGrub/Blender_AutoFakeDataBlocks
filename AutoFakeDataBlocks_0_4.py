@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Advanced Save Unused Data Blocks",
-    "author": "WonkyG",
-    "version": (0, 3),
+    "author": "WonkyGrub",
+    "version": (0, 4),
     "blender": (4, 2, 0),
     "location": "File Menu > Save Unused Data Blocks Settings",
     "description": "Automatically or manually enable fake user for unused data blocks based on category selection",
@@ -60,109 +60,109 @@ class FakeUserPreferences(bpy.types.AddonPreferences):
     auto_save_enable: BoolProperty(
         name="Enable Auto Save Fake User",
         description="Automatically adds a fake user to selected data types before saving",
-        default=True
+        default=False
     )
 
     set_brush: BoolProperty(
         name="Brushes",
         description="Sets fake users for all brush data",
-        default=True
+        default=False
     )
 
     set_camera: BoolProperty(
         name="Cameras",
         description="Sets fake users for all camera data",
-        default=True
+        default=False
     )
 
     set_curve: BoolProperty(
         name="Curves",
         description="Sets fake users for all curve data",
-        default=True
+        default=False
     )
 
     set_font: BoolProperty(
         name="Fonts",
         description="Sets fake users for all font data",
-        default=True
+        default=False
     )
 
     set_image: BoolProperty(
         name="Images",
         description="Sets fake users for all image data",
-        default=True
+        default=False
     )
 
     set_light: BoolProperty(
         name="Lights",
         description="Sets fake users for all light data",
-        default=True
+        default=False
     )
 
     set_lattice: BoolProperty(
         name="Lattices",
         description="Sets fake users for all lattice data",
-        default=True
+        default=False
     )
 
     set_mask: BoolProperty(
         name="Masks",
         description="Sets fake users for all mask data",
-        default=True
+        default=False
     )
 
     set_material: BoolProperty(
         name="Materials",
         description="Sets fake users for all material data",
-        default=True
+        default=False
     )
 
     set_mesh: BoolProperty(
         name="Meshes",
         description="Sets fake users for all mesh data",
-        default=True
+        default=False
     )
 
     set_metaball: BoolProperty(
         name="Metaballs",
         description="Sets fake users for all metaball data",
-        default=True
+        default=False
     )
 
     set_movieclip: BoolProperty(
         name="Movieclips",
         description="Sets fake users for all movieclip data",
-        default=True
+        default=False
     )
 
     set_node_group: BoolProperty(
         name="Node Groups",
         description="Sets fake users for all node group data",
-        default=True
+        default=False
     )
 
     set_object: BoolProperty(
         name="Objects",
         description="Sets fake users for all object data",
-        default=True
+        default=False
     )
 
     set_particle: BoolProperty(
         name="Particles",
         description="Sets fake users for all particle data",
-        default=True
+        default=False
     )
 
     set_texture: BoolProperty(
         name="Textures",
         description="Sets fake users for all texture data",
-        default=True
+        default=False
     )
 
     set_world: BoolProperty(
         name="Worlds",
         description="Sets fake users for all world data",
-        default=True
+        default=False
     )
 
     def draw(self, context):
@@ -174,23 +174,23 @@ class FakeUserPreferences(bpy.types.AddonPreferences):
         box = layout.box()
         col = box.column()
         col.label(text="Data Types to Auto-Save:", icon='MODIFIER')
-        col.prop(self, "set_brush", text="Brushes", toggle=True)
-        col.prop(self, "set_camera", text="Cameras", toggle=True)
-        col.prop(self, "set_curve", text="Curves", toggle=True)
-        col.prop(self, "set_font", text="Fonts", toggle=True)
-        col.prop(self, "set_image", text="Images", toggle=True)
-        col.prop(self, "set_light", text="Lights", toggle=True)
-        col.prop(self, "set_lattice", text="Lattices", toggle=True)
-        col.prop(self, "set_mask", text="Masks", toggle=True)
-        col.prop(self, "set_material", text="Materials", toggle=True)
-        col.prop(self, "set_mesh", text="Meshes", toggle=True)
-        col.prop(self, "set_metaball", text="Metaballs", toggle=True)
-        col.prop(self, "set_movieclip", text="Movieclips", toggle=True)
-        col.prop(self, "set_node_group", text="Node Groups", toggle=True)
-        col.prop(self, "set_object", text="Objects", toggle=True)
-        col.prop(self, "set_particle", text="Particles", toggle=True)
-        col.prop(self, "set_texture", text="Textures", toggle=True)
-        col.prop(self, "set_world", text="Worlds", toggle=True)
+        col.prop(self, "set_brush", text="Brushes", toggle=False)
+        col.prop(self, "set_camera", text="Cameras", toggle=False)
+        col.prop(self, "set_curve", text="Curves", toggle=False)
+        col.prop(self, "set_font", text="Fonts", toggle=False)
+        col.prop(self, "set_image", text="Images", toggle=False)
+        col.prop(self, "set_light", text="Lights", toggle=False)
+        col.prop(self, "set_lattice", text="Lattices", toggle=False)
+        col.prop(self, "set_mask", text="Masks", toggle=False)
+        col.prop(self, "set_material", text="Materials", toggle=False)
+        col.prop(self, "set_mesh", text="Meshes", toggle=False)
+        col.prop(self, "set_metaball", text="Metaballs", toggle=False)
+        col.prop(self, "set_movieclip", text="Movieclips", toggle=False)
+        col.prop(self, "set_node_group", text="Node Groups", toggle=False)
+        col.prop(self, "set_object", text="Objects", toggle=False)
+        col.prop(self, "set_particle", text="Particles", toggle=False)
+        col.prop(self, "set_texture", text="Textures", toggle=False)
+        col.prop(self, "set_world", text="Worlds", toggle=False)
         # Draw other properties
 
 class RAFU_OT_ApplyFakeUsersFromPreferences(bpy.types.Operator):
@@ -237,23 +237,23 @@ class RAFU_OT_SetFakeUsersInteractive(bpy.types.Operator):
     bl_options = {'REGISTER', 'UNDO'}
 
     # Temporary properties, mirroring the ones in FakeUserPreferences but used for this operation only.
-    set_brush: BoolProperty(name="Brushes", default=True)
-    set_camera: BoolProperty(name="Cameras", default=True)
-    set_curve: BoolProperty(name="Curves", default=True)
-    set_font: BoolProperty(name="Fonts", default=True)
-    set_image: BoolProperty(name="Images", default=True)
-    set_light: BoolProperty(name="Lights", default=True)
-    set_lattice: BoolProperty(name="Lattices", default=True)
-    set_mask: BoolProperty(name="Masks", default=True)
-    set_material: BoolProperty(name="Materials", default=True)
-    set_mesh: BoolProperty(name="Meshes", default=True)
-    set_metaball: BoolProperty(name="Metaballs", default=True)
-    set_movieclip: BoolProperty(name="Movieclips", default=True)
-    set_node_group: BoolProperty(name="Node Groups", default=True)
-    set_object: BoolProperty(name="Objects", default=True)
-    set_particle: BoolProperty(name="Particles", default=True)
-    set_texture: BoolProperty(name="Textures", default=True)
-    set_world: BoolProperty(name="Worlds", default=True)
+    set_brush: BoolProperty(name="Brushes", default=False)
+    set_camera: BoolProperty(name="Cameras", default=False)
+    set_curve: BoolProperty(name="Curves", default=False)
+    set_font: BoolProperty(name="Fonts", default=False)
+    set_image: BoolProperty(name="Images", default=False)
+    set_light: BoolProperty(name="Lights", default=False)
+    set_lattice: BoolProperty(name="Lattices", default=False)
+    set_mask: BoolProperty(name="Masks", default=False)
+    set_material: BoolProperty(name="Materials", default=False)
+    set_mesh: BoolProperty(name="Meshes", default=False)
+    set_metaball: BoolProperty(name="Metaballs", default=False)
+    set_movieclip: BoolProperty(name="Movieclips", default=False)
+    set_node_group: BoolProperty(name="Node Groups", default=False)
+    set_object: BoolProperty(name="Objects", default=False)
+    set_particle: BoolProperty(name="Particles", default=False)
+    set_texture: BoolProperty(name="Textures", default=False)
+    set_world: BoolProperty(name="Worlds", default=False)
     # Continue for eac data type...
 
     def invoke(self, context, event):

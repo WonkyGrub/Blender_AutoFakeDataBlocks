@@ -3,7 +3,8 @@ Barebones blender add-on to automatically create fake user for chosen data types
 
 Confirmed Working in Blender Alpha 4.2.0
 
-**All datablock types are on by defualt, as well as set fake user on save. This add on will cause blender files to be larger due to more data being kept that would be purged otherwise. The amount of increase depends on an individuals usage.**
+--All datablock types are on by defualt, as well as set fake user on save. This add on will cause blender files to be larger due to more data being kept that would be purged otherwise. The amount of increase depends on an individuals usage.--
+All datablock types + auto fake user on save are now off by default, configure in addon settings.
 
 Heavily based on an amalgomation of code by [CodeManX](https://blender.stackexchange.com/users/1363/codemanx) [here](https://blender.stackexchange.com/questions/9289/fake-user-on-by-default-in-blender-materials-and-textures), and [TheKinetics](https://github.com/TheKenetics) addon [here](https://github.com/TheKenetics/SetAllFakeUsers2.8).
 
